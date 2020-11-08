@@ -27,7 +27,7 @@ Email: admin@test.com -
 Password: Test_137
 
 
-### It includes the following attributes
+### It includes the following features
 
 ##### Register and log in
 ##### Send a verification email
