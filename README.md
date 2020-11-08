@@ -4,5 +4,5 @@
 
 You can log in with the following user information.
 
-Email: admin@test.com
-Password": Test_137
+Email: admin@test.com -
+Password: Test_137
