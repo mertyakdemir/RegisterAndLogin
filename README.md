@@ -29,4 +29,10 @@ Password: Test_137
 
 ### It includes the following attributes
 
-###### Register and log in
+##### Register and log in
+##### Send a verification email
+##### Sending an "Forgot Password" email
+##### Create user roles
+##### Assign users to roles
+##### From the user detail page, confirm the user's account and assign the user to multiple roles
+
