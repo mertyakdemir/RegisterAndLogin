@@ -1,0 +1,63 @@
+﻿@model RegisterAndLogin.UI.Models.UserDetail
+
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<h1>Edit User</h1>
+
+<hr />
+<form asp-controller="Admin" asp-action="EditUser" method="post">
+    <div class="row">
+
+        <div class="col-md-8    ">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" name="UserId" value="@Model.UserId" />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            @foreach (var roleName in ViewBag.Roles)
+            {
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" name="selectedRoles" value="@roleName" id="@roleName"
+                           @(Model.SelectedRoles.Any(i => i == roleName) ? "checked" : "")>
+
+                    <label class="custom-control-label" for="@roleName">@roleName</label>
+                </div>
+            }
+
+            <hr style="border:2px solid black" />
+
+           <div class="custom-control custom-checkbox">
+               <input asp-for="EmailConfirmed" type="checkbox" class="custom-control-input" />
+               <label asp-for="EmailConfirmed" class="custom-control-label"></label>
+           </div>
+        </div>
+      
+        <div class="form-group" style="margin:15px">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+
+    </div>
+</form>
+
+<div>
+    <a class="btn btn-primary" asp-area="" asp-controller="Admin" asp-action="UserList">Back to user list</a>
+</div>
+

@@ -1,0 +1,73 @@
+﻿@using RegisterAndLogin.UI.Models
+@model RoleDetails
+
+@{
+    ViewData["Title"] = "EditRole";
+}
+
+<h1>Edit Role</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Admin" asp-action="Editrole" method="post">
+            <input type="hidden" name="RoleId" value="@Model.Role.Id" />
+            <input type="hidden" name="RoleName" value="@Model.Role.Name" />
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <h3>Remove to @Model.Role.Name</h3>
+
+            <table class="table table-bordered">
+                @if (Model.Users.Count() == 0)
+                {
+                    <tr>There are no users for this role.</tr>
+                }
+                else
+                {
+                    foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="IdsToRemove" value="@user.Id" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+
+            <hr style="border:2px solid black" />
+
+            <h3>Add to @Model.Role.Name</h3>
+
+            <table class="table table-bordered">
+                @if (Model.NonUsers.Count() == 0)
+                {
+                    <tr>All users belong to this role</tr>
+                }
+                else
+                {
+                    foreach (var user in Model.NonUsers)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>
+                                <input type="checkbox" name="IdsToAdd" value="@user.Id" />
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+
+            <div class="form-group">
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Admin" asp-action="RoleList">Back to List</a>
+</div>
+
