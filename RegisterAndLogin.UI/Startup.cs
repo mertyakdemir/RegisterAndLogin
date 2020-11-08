@@ -32,7 +32,7 @@ namespace RegisterAndLogin.UI
         {
 
             services.AddDbContext<UserAppContext>(options => options.UseSqlServer
-            ("Server=DESKTOP-KDQ2BAE\\SQLEXPRESS;Database=UserDb; Integrated Security=SSPI; MultipleActiveResultSets=True;"));
+            ("Server=SERVER NAME;Database=UserDb; Integrated Security=SSPI; MultipleActiveResultSets=True;"));
 
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<UserAppContext>().AddDefaultTokenProviders().AddDefaultUI();
 
