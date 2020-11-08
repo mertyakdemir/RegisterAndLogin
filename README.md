@@ -25,3 +25,8 @@ You can log in with the following user information.
 
 Email: admin@test.com -
 Password: Test_137
+
+
+### It includes the following attributes
+
+###### Register and log in
